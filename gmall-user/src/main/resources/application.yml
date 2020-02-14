@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://139.129.119.108:3308/gmall?serverTimezone=UTC&characterEncoding=UTF-8
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true #表示表中字段携带_将其变成驼峰命名
+  type-aliases-package: com.sunshine.insist.gmall.user.bean
+logging:
+  level:
+    root: true
+
+
