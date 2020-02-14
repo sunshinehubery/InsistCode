@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  dubbo:
+      application: user-web #dubbo中服务名称
+      registry:
+        address: ip:2181  #zookeeper注册中心的地址
+        protocol: zookeeper #zookeeper的通信协议的名称
+      protocol:
+        name: dubbo #dubbo通信协议名称
+      base-package: com.sunshine.insist.gmall #dubbo服务扫描的路径
+      consumer:
+        timeout: 6000 # 设置超时时间
+        check: false # 设置是否检查服务存在
