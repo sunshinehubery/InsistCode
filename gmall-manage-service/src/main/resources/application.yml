@@ -1,0 +1,25 @@
+server:
+  port: 8071
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://ip:3308/gmall?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false
+
+  dubbo:
+    application: manage-service #dubbo中服务名称
+    registry:
+      address: ip:2181  #zookeeper注册中心的地址
+      protocol: zookeeper #zookeeper的通信协议的名称
+    protocol:
+      name: dubbo
+    base-package: com.sunshine.insist.gmall #dubbo服务扫描的路径
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true #表示指带有下划线的表字段映射为驼峰命名法
+  type-aliases-package: com.sunshine.insist.gmall.user.bean
+logging:
+  level:
+    root: info

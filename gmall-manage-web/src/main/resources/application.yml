@@ -1,0 +1,19 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://ip:3308/gmall?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false
+
+  dubbo:
+    application: manage-web #dubbo中服务名称
+    registry:
+      address: ip:2181  #zookeeper注册中心的地址
+      protocol: zookeeper #zookeeper的通信协议的名称
+    protocol:
+      name: dubbo
+    base-package: com.sunshine.insist.gmall #dubbo服务扫描的路径
+    consumer:
+      check: false
+      timeout: 6000
