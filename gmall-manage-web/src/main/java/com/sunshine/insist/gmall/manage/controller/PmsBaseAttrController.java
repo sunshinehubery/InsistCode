@@ -25,7 +25,12 @@ public class PmsBaseAttrController {
 
     @RequestMapping("/attrInfoList")
     public List<PmsBaseAttrInfo> getAttrInfoByCatalog3Id(String catalog3Id){
-        return pmsBaseAttrService.getAttrInfoByCatalog3Id(catalog3Id);
+        List<PmsBaseAttrInfo> pmsBaseAttrInfoList = pmsBaseAttrService.getAttrInfoByCatalog3Id(catalog3Id);
+        for(PmsBaseAttrInfo pmsBaseAttrInfo : pmsBaseAttrInfoList){
+            List<PmsBaseAttrValue> pmsBaseAttrValueList = pmsBaseAttrService.getAttrValueByAttrId(pmsBaseAttrInfo.getId());
+            pmsBaseAttrInfo.setAttrValueList(pmsBaseAttrValueList);
+        }
+        return pmsBaseAttrInfoList;
     }
 
     @RequestMapping("/getAttrValueList")
